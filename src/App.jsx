@@ -8,6 +8,7 @@ import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CaseStudyRouter from './pages/CaseStudyRouter';
+import CreatorProfile from './pages/CreatorProfile';
 
 function HomePage() {
   return (
@@ -30,6 +31,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/case-study/:slug" element={<CaseStudyRouter />} />
+        <Route path="/about/:slug" element={<CreatorProfile />} />
       </Routes>
     </BrowserRouter>
   );

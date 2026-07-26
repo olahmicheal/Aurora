@@ -1,7 +1,19 @@
 import { team } from '../data/siteData';
+import { useNavigate } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
+// Map display names to URL slugs
+const nameToSlug = {
+  "Joseph Ogoliegune": "joe",
+  "Toluwanimi Oyebiyi": "toluwanimi",
+  "Olatunbosun oluwaferanmi Micheal": "olatunbosun",
+  "Kabiru Sheriff": "kabiru",
+  "Jogbodo Abbey": "jogbodo"
+};
+
 export default function About() {
+  const navigate = useNavigate();
+
   return (
     <section id="about" className="py-24 md:py-32 bg-[#fafafa]">
       <div className="max-w-4xl mx-auto px-6">
@@ -23,20 +35,24 @@ export default function About() {
         </div>
 
         <div className="space-y-3">
-          {team.map((member, idx) => (
-            <div 
-              key={idx}
-              className="group flex items-center justify-between p-5 rounded-xl bg-white border border-gray-100 hover:shadow-md transition-all cursor-pointer"
-            >
-              <div>
-                <h4 className="text-lg font-bold text-gray-900">{member.name}</h4>
-                <p className="text-sm text-gray-500">{member.role}</p>
+          {team.map((member, idx) => {
+            const slug = nameToSlug[member.name];
+            return (
+              <div 
+                key={idx}
+                onClick={() => slug && navigate(`/about/${slug}`)}
+                className={`group flex items-center justify-between p-5 rounded-xl bg-white border border-gray-100 hover:shadow-md transition-all ${slug ? 'cursor-pointer' : 'cursor-default'}`}
+              >
+                <div>
+                  <h4 className="text-lg font-bold text-gray-900">{member.name}</h4>
+                  <p className="text-sm text-gray-500">{member.role}</p>
+                </div>
+                <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-red-600 transition-colors">
+                  <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" />
+                </div>
               </div>
-              <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-red-600 transition-colors">
-                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" />
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
