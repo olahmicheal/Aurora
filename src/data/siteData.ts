@@ -5,7 +5,7 @@ export const portfolioItems = [
     title: "Paypulse",
     tag: "Financial App",
     subtitle: "UX Design | UI Design",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+    image: "/Images-20260727T192134Z-1-001/Images/Group 39485.png",
     dark: true,
     layout: "left",
     circleColor: "bg-purple-400",
@@ -17,7 +17,7 @@ export const portfolioItems = [
     title: "EventSpace",
     tag: "Lifestyle",
     subtitle: "Website Design / Website Development",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=700&fit=crop",
+    image: "/Images-20260727T192134Z-1-001/Images/Circle.png",
     dark: false,
     layout: "right",
     circleColor: "bg-gray-300",
@@ -29,7 +29,7 @@ export const portfolioItems = [
     title: "Store.com",
     tag: "Clothing",
     subtitle: "Website Design / Website Development",
-    image: "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&h=700&fit=crop",
+    image: "/Images-20260727T192134Z-1-001/Images/Circle 2.png",
     dark: true,
     layout: "left",
     circleColor: "bg-[#fca5a5]",
@@ -41,7 +41,7 @@ export const portfolioItems = [
     title: "Elevana",
     tag: "App Design",
     subtitle: "UX Design | UI Design | Website Design",
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=700&fit=crop",
+    image: "/Images-20260727T192134Z-1-001/Images/Circle 3.png",
     dark: false,
     layout: "right",
     circleColor: "bg-amber-400",
@@ -53,7 +53,7 @@ export const portfolioItems = [
     title: "Pre-chips",
     tag: "Branding",
     subtitle: "Branding | Product Design | Packaging",
-    image: "https://images.unsplash.com/photo-1634942537034-2531766767d1?w=800&h=600&fit=crop",
+    image: "/Images-20260727T192134Z-1-001/Images/Circle 4.png",
     dark: true,
     layout: "left",
     circleColor: "bg-[#1a4d2e]",
@@ -66,7 +66,7 @@ export const portfolioItems = [
     title: "24/7",
     tag: "Branding",
     subtitle: "Branding | Product Design",
-    image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&h=600&fit=crop",
+    image: "/Images-20260727T192134Z-1-001/Images/Circle 5.png",
     dark: false,
     layout: "right",
     circleColor: "bg-gray-200",
@@ -81,6 +81,56 @@ export const services = [
   "Print & Production",
   "Engineering Solutions",
   "Animations",
+];
+
+// NEW: Expanded service data for FlipCards
+export const servicesData = [
+  {
+    id: 1,
+    slug: "digital-solutions",
+    title: "Digital Solutions",
+    subtitle: "Web & Mobile Development",
+    description: "We build scalable web and mobile applications using modern technologies. From responsive websites to cross-platform apps, we deliver digital solutions that drive business growth and user engagement.",
+    image: "/Images-20260727T192134Z-1-001/Images/services-digital.jpg",
+    // Fallback: use a portfolio image if no service image exists
+    fallbackImage: "/Images-20260727T192134Z-1-001/Images/Group 39485.png"
+  },
+  {
+    id: 2,
+    slug: "branding-creative",
+    title: "Branding & Creative design",
+    subtitle: "Identity & Visual Design",
+    description: "Strategic brand identity development, logo design, visual systems, and creative direction. We craft memorable brands that resonate with your audience and stand out in the market.",
+    image: "/Images-20260727T192134Z-1-001/Images/services-branding.jpg",
+    fallbackImage: "/Images-20260727T192134Z-1-001/Images/Circle 4.png"
+  },
+  {
+    id: 3,
+    slug: "print-production",
+    title: "Print & Production",
+    subtitle: "Physical Media & Materials",
+    description: "High-quality print design and production services including brochures, business cards, packaging, banners, and large-format printing. From concept to final delivery.",
+    image: "/Images-20260727T192134Z-1-001/Images/services-print.jpg",
+    fallbackImage: "/Images-20260727T192134Z-1-001/Images/Circle 5.png"
+  },
+  {
+    id: 4,
+    slug: "engineering-solutions",
+    title: "Engineering Solutions",
+    subtitle: "MEP & Technical Design",
+    description: "Comprehensive engineering design services including mechanical, electrical, and plumbing (MEP) systems. We provide technical drawings, 3D modeling, and project documentation.",
+    image: "/Images-20260727T192134Z-1-001/Images/services-engineering.jpg",
+    fallbackImage: "/Images-20260727T192134Z-1-001/Images/Circle 3.png"
+  },
+  {
+    id: 5,
+    slug: "animations",
+    title: "Animations",
+    subtitle: "Motion & Visual Storytelling",
+    description: "2D and 3D animation, motion graphics, explainer videos, and visual storytelling. We bring ideas to life through captivating animations that engage and inform your audience.",
+    image: "/Images-20260727T192134Z-1-001/Images/services-animation.jpg",
+    fallbackImage: "/Images-20260727T192134Z-1-001/Images/Circle 2.png"
+  }
 ];
 
 export const team = [

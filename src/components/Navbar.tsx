@@ -21,17 +21,14 @@ export default function Navbar() {
       scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'
     }`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        {/* Logo */}
-        <div className="flex items-center gap-2">
-          <div className="w-12 h-12 bg-red-600 rounded-full flex flex-col items-center justify-center text-white relative overflow-hidden">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="mb-0.5">
-              <path d="M12 3L3 21h18L12 3z" />
-            </svg>
-            <div className="text-[5px] font-bold tracking-widest text-center leading-tight">
-              AURORA<br/>CREATIVE
-            </div>
-          </div>
-        </div>
+        {/* Logo - Replace src with your actual logo image */}
+        <a href="/" className="flex items-center gap-2">
+          <img 
+            src="\Images-20260727T192134Z-1-001\Images\logo.png" 
+            alt="Aurora Creative" 
+            className="h-10 w-auto object-contain"
+          />
+        </a>
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-10">

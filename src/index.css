@@ -13,3 +13,10 @@
     @apply bg-white text-gray-900;
   }
 }
+@layer utilities {
+  .perspective-\[1000px\] { perspective: 1000px; }
+  .transform-3d { transform-style: preserve-3d; }
+  .backface-hidden { backface-visibility: hidden; }
+  .rotate-y-180 { transform: rotateY(180deg); }
+  .group-hover\/card\:rotate-y-180:hover { transform: rotateY(180deg); }
+}

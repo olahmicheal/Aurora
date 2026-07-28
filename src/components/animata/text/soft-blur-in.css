@@ -1,0 +1,37 @@
+.soft-blur-container {
+  display: inline;
+}
+
+.soft-blur-word-wrapper {
+  display: inline;
+  white-space: nowrap;
+}
+
+.soft-blur-char {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(12px);
+  transform: translateY(16px);
+  will-change: transform, opacity, filter;
+}
+
+.soft-blur-char.animate-in {
+  animation: softBlurIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes softBlurIn {
+  0% {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0);
+  }
+}
+
+.soft-blur-space {
+  display: inline;
+}

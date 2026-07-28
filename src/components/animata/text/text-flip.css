@@ -1,0 +1,18 @@
+@keyframes flip-words {
+  0% { transform: translateY(0); }
+  10% { transform: translateY(-112%); }
+  25% { transform: translateY(-100%); }
+  35% { transform: translateY(-212%); }
+  50% { transform: translateY(-200%); }
+  60% { transform: translateY(-312%); }
+  75% { transform: translateY(-300%); }
+  85% { transform: translateY(-412%); }
+  100% { transform: translateY(-400%); }
+}
+
+.animate-flip-words {
+  animation-name: flip-words;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
