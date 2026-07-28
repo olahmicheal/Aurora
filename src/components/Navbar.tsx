@@ -24,7 +24,7 @@ export default function Navbar() {
         {/* Logo - Replace src with your actual logo image */}
         <a href="/" className="flex items-center gap-2">
           <img 
-            src="\Images-20260727T192134Z-1-001\Images\logo.png" 
+            src="/public/Images-20260727T192134Z-1-001/Images/logo.png" 
             alt="Aurora Creative" 
             className="h-10 w-auto object-contain"
           />
