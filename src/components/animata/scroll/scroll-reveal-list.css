@@ -1,0 +1,39 @@
+.scroll-reveal-container {
+  /* Container uses flex-col + gap from Tailwind */
+}
+
+.scroll-reveal-item {
+  opacity: 0;
+  transform: translateY(var(--reveal-y-offset, -60px)) scale(var(--reveal-start-scale, 0.85));
+  transition: none;
+  will-change: transform, opacity;
+}
+
+/* Shadow for cards */
+.scroll-reveal-shadow {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border-radius: 1rem;
+}
+
+.scroll-reveal-item.revealed {
+  animation: scrollReveal var(--reveal-duration, 0.9s) cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--reveal-delay, 0s);
+}
+
+/* Reset animation when not visible so it re-triggers */
+.scroll-reveal-item:not(.revealed) {
+  animation: none;
+  opacity: 0;
+  transform: translateY(var(--reveal-y-offset, -60px)) scale(var(--reveal-start-scale, 0.85));
+}
+
+@keyframes scrollReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(var(--reveal-y-offset, -60px)) scale(var(--reveal-start-scale, 0.85));
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

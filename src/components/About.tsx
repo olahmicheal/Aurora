@@ -1,8 +1,8 @@
 import { team } from '../data/siteData';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import ScrollRevealList from './animata/scroll/ScrollRevealList';
 
-// Map display names to URL slugs
 const nameToSlug = {
   "Joseph Ogoliegune": "joe",
   "Toluwanimi Oyebiyi": "toluwanimi",
@@ -34,7 +34,15 @@ export default function About() {
           </p>
         </div>
 
-        <div className="space-y-3">
+        {/* Scroll Reveal List with gap and shadow */}
+        <ScrollRevealList 
+          staggerDelay={0.15} 
+          duration={0.9} 
+          yOffset={-70} 
+          startScale={0.82}
+          gap="gap-3"
+          cardShadow={true}
+        >
           {team.map((member, idx) => {
             const slug = nameToSlug[member.name];
             return (
@@ -53,7 +61,7 @@ export default function About() {
               </div>
             );
           })}
-        </div>
+        </ScrollRevealList>
       </div>
     </section>
   );

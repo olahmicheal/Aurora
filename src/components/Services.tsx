@@ -1,6 +1,7 @@
 import { services } from '../data/siteData';
 import { ArrowRight } from 'lucide-react';
 import JitterText from './animata/text/JitterText';
+import ScrollRevealList from './animata/scroll/ScrollRevealList';
 import { useNavigate } from 'react-router-dom';
 
 export default function Services() {
@@ -18,13 +19,21 @@ export default function Services() {
           />
           <div className="w-16 h-1 bg-red-600 mx-auto mt-4 rounded-full" />
         </div>
-        
-        <div className="space-y-4">
+
+        {/* Scroll Reveal List with gap and shadow */}
+        <ScrollRevealList 
+          staggerDelay={0.1} 
+          duration={0.8} 
+          yOffset={-50} 
+          startScale={0.88}
+          gap="gap-4"
+          cardShadow={true}
+        >
           {services.map((service, idx) => (
             <div 
               key={idx}
               onClick={() => navigate(`/services/${idx}`)}
-              className="group flex items-center justify-between p-6 rounded-2xl border border-gray-100 hover:border-red-100 hover:bg-red-50/30 transition-all cursor-pointer"
+              className="group flex items-center justify-between p-6 rounded-2xl border border-gray-100 hover:border-red-100 hover:bg-red-50/30 transition-all cursor-pointer bg-white"
             >
               <h3 className="text-xl md:text-2xl font-semibold text-gray-900 group-hover:text-red-600 transition-colors">
                 {service}
@@ -34,7 +43,7 @@ export default function Services() {
               </div>
             </div>
           ))}
-        </div>
+        </ScrollRevealList>
       </div>
     </section>
   );
