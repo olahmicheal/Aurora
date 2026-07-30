@@ -1,17 +1,28 @@
 import { ArrowRight } from 'lucide-react';
+import TextExplodeIMessage from './animata/text/TextExplodeIMessage';
+import { useNavigate } from 'react-router-dom';
 
 export default function Footer() {
+  const navigate = useNavigate();
+
   return (
     <footer className="bg-white py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
           <div className="max-w-xl">
-            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">Thank You!</h2>
-            <p className="text-gray-500 mb-2">For sparing some time and review my work.</p>
+            <TextExplodeIMessage 
+              text="Thank You!" 
+              mode="loop"
+              className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 justify-start"
+            />
+            <p className="text-gray-500 mb-2">For sparing some time and review our work.</p>
             <p className="text-xl text-gray-900 font-medium mb-8 leading-relaxed">
               Do you have great idea and want to share. Let's make something amazing together
             </p>
-            <button className="px-8 py-3.5 bg-red-600 text-white rounded-full font-medium hover:bg-red-700 transition-all flex items-center gap-2">
+            <button 
+              onClick={() => navigate('/contact')}
+              className="px-8 py-3.5 bg-red-600 text-white rounded-full font-medium hover:bg-red-700 transition-all flex items-center gap-2"
+            >
               Get in touch with me <ArrowRight className="w-4 h-4" />
             </button>
           </div>

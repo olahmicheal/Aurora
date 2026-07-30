@@ -1,14 +1,26 @@
 import { testimonials } from '../data/siteData';
 import { Star } from 'lucide-react';
+import ScrollRevealList from './animata/scroll/ScrollRevealList2';
 
 export default function Testimonials() {
   return (
-    <section className="py-24 md:py-32 bg-white">
+    <section id="testimonials" className="py-24 md:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <p className="text-sm text-gray-500 mb-2">Clients Feedback</p>
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-gray-900">Customer Testimonials</h2>
         
-        <div className="grid md:grid-cols-3 gap-6">
+        {/* Horizontal slide-in from -x axis */}
+        <ScrollRevealList 
+          staggerDelay={0.15} 
+          duration={0.9} 
+          xOffset={-80}
+          yOffset={0}
+          startScale={0.9}
+          gap="gap-6"
+          cardShadow={false}
+          direction="horizontal"
+          className="grid md:grid-cols-3"
+        >
           {testimonials.map((t) => (
             <div key={t.id} className="p-6 rounded-2xl border border-gray-100 bg-white hover:shadow-lg transition-shadow">
               <div className="flex gap-1 mb-4">
@@ -25,7 +37,7 @@ export default function Testimonials() {
               </div>
             </div>
           ))}
-        </div>
+        </ScrollRevealList>
       </div>
     </section>
   );

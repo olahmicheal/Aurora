@@ -2,9 +2,9 @@ import CaseStudyLayout from '../components/CaseStudyLayout';
 import CaseStudyContent from './CaseStudyContent';
 import { caseStudies } from '../data/caseStudyData';
 
-const data = caseStudies.paypulse;
+const data = caseStudies.elevana;
 
-export default function PaypulseCaseStudy() {
+export default function ElevanaCaseStudy() {
   return (
     <CaseStudyLayout
       title={data.title}
@@ -12,7 +12,7 @@ export default function PaypulseCaseStudy() {
       liveUrl={data.liveUrl}
       hasLiveSite={data.hasLiveSite}
       heroImage={data.heroImage}
-      accentColor="bg-purple-900"
+      accentColor="bg-amber-500"
       projectName={data.title}
     >
       <CaseStudyContent data={data} />

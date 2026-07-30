@@ -1,0 +1,64 @@
+.scroll-reveal-container {
+  /* Flex handled by Tailwind classes */
+}
+
+.scroll-reveal-item {
+  opacity: 0;
+  transform: translateY(var(--reveal-y-offset, -60px)) scale(var(--reveal-start-scale, 0.85));
+  transition: none;
+  will-change: transform, opacity;
+}
+
+/* Horizontal direction override */
+.scroll-reveal-item.scroll-reveal-horizontal {
+  transform: translateX(var(--reveal-x-offset, -80px)) scale(var(--reveal-start-scale, 0.85));
+}
+
+.scroll-reveal-item.scroll-reveal-horizontal.revealed {
+  animation: scrollRevealHorizontal var(--reveal-duration, 0.9s) cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--reveal-delay, 0s);
+}
+
+/* Shadow for cards */
+.scroll-reveal-shadow {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border-radius: 1rem;
+}
+
+.scroll-reveal-item.revealed {
+  animation: scrollReveal var(--reveal-duration, 0.9s) cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--reveal-delay, 0s);
+}
+
+/* Reset animation when not visible */
+.scroll-reveal-item:not(.revealed) {
+  animation: none;
+  opacity: 0;
+  transform: translateY(var(--reveal-y-offset, -60px)) scale(var(--reveal-start-scale, 0.85));
+}
+
+.scroll-reveal-item.scroll-reveal-horizontal:not(.revealed) {
+  transform: translateX(var(--reveal-x-offset, -80px)) scale(var(--reveal-start-scale, 0.85));
+}
+
+@keyframes scrollReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(var(--reveal-y-offset, -60px)) scale(var(--reveal-start-scale, 0.85));
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes scrollRevealHorizontal {
+  0% {
+    opacity: 0;
+    transform: translateX(var(--reveal-x-offset, -80px)) scale(var(--reveal-start-scale, 0.85));
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}

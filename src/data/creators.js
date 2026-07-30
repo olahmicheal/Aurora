@@ -87,12 +87,92 @@ export const creators = {
     languages: [
       { name: "English", flag: "🇬🇧" }
     ]
+  },
+  kabiru: {
+    name: "Sheriff",
+    fullName: "Sheriff Kabiru",
+    role: "Electrical Design Engineer (MEP)",
+    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=700&fit=crop",
+    bio: [
+      "I'm Sheriff Kabiru, an electrical MEP engineer with expertise in power distribution, ELV systems, and renewable energy integration for building projects. I design distribution, lighting, fire alarm, and backup power systems, all compliant with Nigerian engineering standards.",
+      "I size solar PV systems (off-grid, on-grid, and hybrid) and explore innovative piezoelectric energy harvesting for smart building power. My goal is to make buildings energy-efficient, safe, and grid-resilient."
+    ],
+    connectText: "Let's connect!",
+    history: [
+      {
+        company: "MEP Engineering Consultants",
+        logo: "M",
+        logoColor: "bg-red-600",
+        role: "Lead Electrical MEP & Renewable Engineer",
+        type: "Full-time",
+        date: "2022 - Present",
+        points: [
+          "Design electrical distribution systems (switchgear, main distribution boards, sub-panels, transformers) per NESIS 2015 standards.",
+          "Size backup power systems including generators, UPS, and Automatic Transfer Switches (ATS) per NERC and DisCo requirements."
+        ]
+      },
+      {
+        company: "Power & Renewable Solutions Nigeria",
+        logo: "P",
+        logoColor: "bg-blue-600",
+        role: "Electrical Systems & Solar PV Design Engineer",
+        type: "Contract",
+        date: "2020 - 2022",
+        points: [
+          "Integrated renewable energy into MEP designs to reduce grid dependency and operational generator fuel expenses.",
+          "Explored piezoelectric energy harvesting for smart building and floor-integrated micro-power applications."
+        ]
+      },
+      {
+        company: "Building Services Engineering Ltd",
+        logo: "B",
+        logoColor: "bg-green-600",
+        role: "Engineering",
+        type: "Full-time",
+        date: "2018 - 2020",
+        points: [
+          "Coordinated directly with Electricity Distribution Companies (DisCos) for service entrances and metering compliance.",
+          "Ensured full compliance with NBC, NESIS, NERC, and COREN engineering standards across commercial and residential projects."
+        ]
+      }
+    ],
+    skills: [
+      "Electrical Layouts (Lighting, Socket)",
+      "Schematic Diagrams (SLDs & Panel)",
+      "Mechanical Systems (HVAC, Water)",
+      "Power Distribution Design (NESIS 2015)",
+      "Solar PV System Sizing (On-grid, Off-grid)",
+      "Backup Power & ATS Sizing (Generator)",
+      "Electricity DisCo Service Integration"
+    ],
+    tools: [
+      { name: "AutoCAD", color: "bg-red-100" },
+      { name: "Microsoft Excel", color: "bg-green-100" },
+      { name: "VFD Software", color: "bg-blue-100" },
+      { name: "PVsyst", color: "bg-yellow-100" },
+      { name: "DIALux", color: "bg-gray-100" },
+      { name: "MATLAB / ETAP", color: "bg-orange-100" }
+    ],
+    certifications: [
+      {
+        company: "COREN",
+        logo: "COREN",
+        logoColor: "text-green-600",
+        title: "Council for the Regulation of Engineering in Nigeria",
+        date: "2021"
+      },
+      {
+        company: "NERC",
+        logo: "NERC",
+        logoColor: "text-blue-600",
+        title: "Nigerian Electricity Regulatory Commission",
+        date: "2022"
+      }
+    ],
+    languages: [
+      { name: "English", flag: "🇬🇧" }
+    ]
   }
-  // Add more creators here:
-  // toluwanimi: { ... },
-  // olatunbosun: { ... },
-  // kabiru: { ... },
-  // jogbodo: { ... }
 };
 
 export const creatorList = Object.entries(creators).map(([slug, data]) => ({

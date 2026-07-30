@@ -2,6 +2,7 @@ import { team } from '../data/siteData';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import ScrollRevealList from './animata/scroll/ScrollRevealList';
+import JitterText from './animata/text/JitterText';
 
 const nameToSlug = {
   "Joseph Ogoliegune": "joe",
@@ -17,11 +18,18 @@ export default function About() {
   return (
     <section id="about" className="py-24 md:py-32 bg-[#fafafa]">
       <div className="max-w-4xl mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900">About Us</h2>
+        {/* Jittery "About Us" Header */}
+        <div className="text-center mb-4">
+          <JitterText 
+            text="About Us" 
+            duration={0.6}
+            className="text-3xl md:text-4xl font-bold text-gray-900"
+          />
+        </div>
         <div className="w-16 h-1 bg-red-600 mx-auto mb-16 rounded-full" />
         
         <div className="text-center mb-20">
-          <h3 className="text-2xl font-bold mb-6 text-gray-900">About Aurora Creative</h3>
+          
           <p className="text-gray-600 leading-relaxed max-w-3xl mx-auto">
             Aurora Creative is a full-service creative agency dedicated to building brands that stand out and leave a lasting impression. We bring together creative thinking, digital innovation, and technical expertise to deliver solutions that are both functional and visually compelling. From branding and digital products to animation, print production, and engineering, we help businesses turn ideas into reality and create your imaginations to life. Our collaborative approach ensures every project is tailored to our clients' goals. We are driven by creativity, excellence, and a passion for delivering meaningful results.
           </p>
@@ -34,7 +42,7 @@ export default function About() {
           </p>
         </div>
 
-        {/* Scroll Reveal List with gap and shadow */}
+        {/* Scroll Reveal List for Team */}
         <ScrollRevealList 
           staggerDelay={0.15} 
           duration={0.9} 
