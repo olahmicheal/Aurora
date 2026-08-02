@@ -4,6 +4,9 @@ import StorecomCaseStudy from './StorecomCaseStudy';
 import EventSpaceCaseStudy from './EventSpaceCaseStudy';
 import ElevanaCaseStudy from './ElevanaCaseStudy';
 import PrechipsCaseStudy from './PrechipsCaseStudy';
+import TwentyFourCaseStudy from './TwentyFourCaseStudy';
+import MaximumWackoCaseStudy from './MaximumWackoCaseStudy';
+
 import ComingSoon from './ComingSoon';
 
 const caseStudyPages = {
@@ -12,6 +15,9 @@ const caseStudyPages = {
   eventspace: EventSpaceCaseStudy,
   elevana: ElevanaCaseStudy,
   prechips: PrechipsCaseStudy,
+  twentyfour: TwentyFourCaseStudy,
+  maximumwacko: MaximumWackoCaseStudy,
+
 };
 
 export default function CaseStudyRouter() {

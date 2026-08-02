@@ -2,9 +2,9 @@ import CaseStudyLayout from '../components/CaseStudyLayout';
 import CaseStudyContent from './CaseStudyContent';
 import { caseStudies } from '../data/caseStudyData';
 
-const data = caseStudies.twentyfour;
+const data = caseStudies.maximumwacko;
 
-export default function TwentyFourCaseStudy() {
+export default function MaximumWackoCaseStudy() {
   return (
     <CaseStudyLayout
       title={data.title}
@@ -12,7 +12,7 @@ export default function TwentyFourCaseStudy() {
       liveUrl={data.liveUrl}
       hasLiveSite={data.hasLiveSite}
       heroImage={data.heroImage}
-      accentColor="bg-gray-200"
+      accentColor="bg-red-600"
       projectName={data.title}
     >
       <CaseStudyContent data={data} />

@@ -7,7 +7,7 @@ import JitterText from './animata/text/JitterText';
 const nameToSlug = {
   "Joseph Ogoliegune": "joe",
   "Toluwanimi Oyebiyi": "toluwanimi",
-  "Olatunbosun oluwaferanmi Micheal": "olatunbosun",
+  "Olatunbosun oluwaferanmi Micheal": "feranmi",
   "Kabiru Sheriff": "kabiru",
   "Jogbodo Abbey": "jogbodo"
 };

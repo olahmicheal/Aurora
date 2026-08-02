@@ -3,7 +3,7 @@
 }
 
 .soft-blur-word-wrapper {
-  display: inline;
+  display: inline-block;
   white-space: nowrap;
 }
 

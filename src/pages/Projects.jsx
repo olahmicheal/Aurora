@@ -1,9 +1,10 @@
-import { portfolioItems } from '../data/siteData.js';
+import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import StackedSections from './animata/scroll/StackedSections';
-import GithubCardSkew from './animata/card/GithubCardSkew';
+import { allProjects, projectCategories } from '../data/projectsData.js';
+import GithubCardSkew from '../components/animata/card/GithubCardSkew';
+import FluidTabs from '../components/animata/tabs/FluidTabs';
 
-function PortfolioCard({ item, navigate }) {
+function ProjectCard({ item, navigate }) {
   return (
     <GithubCardSkew 
       className={`w-full overflow-hidden rounded-2xl ${
@@ -12,7 +13,6 @@ function PortfolioCard({ item, navigate }) {
           : '!bg-[#f5f5f5] !text-gray-900 !border-gray-200'
       }`}
     >
-      {/* Inner wrapper with explicit background to override any skew styles */}
       <div className={`w-full ${item.dark ? 'bg-black' : 'bg-[#f5f5f5]'}`}>
         <div className="max-w-4xl mx-auto px-5 py-8 md:py-10">
           <div className={`flex flex-col ${item.layout === 'right' ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-6 md:gap-10`}>
@@ -66,43 +66,67 @@ function PortfolioCard({ item, navigate }) {
   );
 }
 
-function ViewMoreCard({ onClick }) {
-  return (
-    <div className="w-full relative">
-      <div 
-        className="absolute inset-x-0 top-0 bottom-0 backdrop-blur-xl bg-white/60" 
-        style={{ 
-          left: 'calc(-50vw + 50%)', 
-          right: 'calc(-50vw + 50%)',
-          zIndex: -1 
-        }} 
-      />
-      <div className="relative flex items-center justify-center py-6 md:py-8">
-        <button 
-          onClick={onClick}
-          className="px-10 py-3 bg-red-600 text-white rounded-full font-medium hover:bg-red-700 hover:scale-105 active:scale-95 transition-all duration-200 text-sm shadow-lg"
-        >
-          View more projects
-        </button>
-      </div>
-    </div>
-  );
-}
-
-export default function Portfolio() {
+export default function Projects() {
   const navigate = useNavigate();
+  const [activeCategory, setActiveCategory] = useState(0);
+
+  const filteredProjects = useMemo(() => {
+    if (activeCategory === 0) return allProjects;
+    const category = projectCategories[activeCategory];
+    return allProjects.filter(project => 
+      project.categories.includes(category)
+    );
+  }, [activeCategory]);
 
   return (
-    <section id="portfolio" className="bg-[#f0f0f0]">
-      <div className="max-w-3xl mx-auto px-4 pt-6">
-        <StackedSections stackOffset={36} withDramaEffect={true} paneGap="gap-3">
-          {portfolioItems.map((item) => (
-            <PortfolioCard key={item.id} item={item} navigate={navigate} />
-          ))}
-          <ViewMoreCard onClick={() => navigate('/projects')} />
-        </StackedSections>
+    <section className="min-h-screen bg-[#f0f0f0] pt-28 pb-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Our Projects
+          </h1>
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            Explore our portfolio of design and development work across various industries.
+          </p>
+        </div>
+
+        {/* Filter Toggle */}
+        <div className="mb-12">
+          <FluidTabs 
+            defaultActiveIndex={0} 
+            onActiveIndexChange={setActiveCategory}
+            className="w-full"
+          >
+            <FluidTabs.List aria-label="Project Categories" className="bg-gray-200/80">
+              {projectCategories.map((cat) => (
+                <FluidTabs.Tab key={cat}>
+                  <FluidTabs.Label className="text-xs sm:text-sm px-2">{cat}</FluidTabs.Label>
+                </FluidTabs.Tab>
+              ))}
+            </FluidTabs.List>
+          </FluidTabs>
+        </div>
+
+        {/* Projects Grid */}
+        {filteredProjects.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {filteredProjects.map((item) => (
+              <ProjectCard key={item.id} item={item} navigate={navigate} />
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-20">
+            <div className="text-6xl mb-4">🚧</div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Coming Soon</h2>
+            <p className="text-gray-500">
+              We are working on exciting projects in this category. Check back soon!
+            </p>
+          </div>
+        )}
+
       </div>
-      <div className="h-2" />
     </section>
   );
 }

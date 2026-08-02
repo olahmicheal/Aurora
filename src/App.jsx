@@ -10,6 +10,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CaseStudyRouter from './pages/CaseStudyRouter';
 import CreatorProfile from './pages/CreatorProfile';
+import Projects from './pages/Projects'; // ← ADD THIS
 
 function HomePage({ scrollLocked, onUnlock }) {
   return (
@@ -36,7 +37,6 @@ function HomePage({ scrollLocked, onUnlock }) {
 function App() {
   const [scrollLocked, setScrollLocked] = useState(true);
 
-  // Check localStorage on mount to see if user has already unlocked
   useEffect(() => {
     const hasUnlocked = localStorage.getItem('aurora-unlocked');
     if (hasUnlocked === 'true') {
@@ -53,6 +53,13 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage scrollLocked={scrollLocked} onUnlock={handleUnlock} />} />
+        <Route path="/projects" element={
+          <>
+            <Navbar />
+            <Projects />
+            <Footer />
+          </>
+        } />
         <Route path="/case-study/:slug" element={<CaseStudyRouter />} />
         <Route path="/about/:slug" element={<CreatorProfile />} />
       </Routes>

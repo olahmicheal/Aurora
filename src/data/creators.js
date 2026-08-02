@@ -3,7 +3,7 @@ export const creators = {
     name: "Joe",
     fullName: "Joseph Ogoliegune",
     role: "Product Designer & Project Manager",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=700&fit=crop",
+    image: "/Images-20260727T192134Z-1-001/Images/Rectangle 364.png",
     bio: [
       "I'm an Industrial Designer turned UX Designer based in Lagos, Nigeria. My passion is in creating human-centered designs that can improve our daily lives while creating a cross-cultural impact.",
       "My past experience lends me the ability to communicate effectively across multiple divisions and collaborate efficiently in an agile working environment. That's why I would love to work with the next product team to design solutions that we are all proud of."
@@ -12,7 +12,8 @@ export const creators = {
     history: [
       {
         company: "Aurora Creative",
-        logo: "A",
+        logo: "Aurora",
+        logoType: "text",
         logoColor: "bg-red-600",
         role: "UX/UI Designer",
         type: "Design",
@@ -24,7 +25,8 @@ export const creators = {
       },
       {
         company: "Globus Bank",
-        logo: "G",
+        logo: "Globus",
+        logoType: "text",
         logoColor: "bg-red-500",
         role: "UX/UI Designer",
         type: "Intern",
@@ -36,7 +38,8 @@ export const creators = {
       },
       {
         company: "Freelance",
-        logo: "F",
+        logo: "Freelance",
+        logoType: "text",
         logoColor: "bg-green-500",
         role: "UX/UI Designer",
         type: "Freelance",
@@ -57,21 +60,23 @@ export const creators = {
       "Project management"
     ],
     tools: [
-      { name: "Figma", color: "bg-purple-100" },
-      { name: "Adobe XD", color: "bg-pink-100" },
-      { name: "Sketch", color: "bg-yellow-100" },
-      { name: "Principal", color: "bg-blue-100" },
-      { name: "Slack", color: "bg-green-100" },
-      { name: "Framer", color: "bg-gray-100" },
-      { name: "Canva", color: "bg-cyan-100" },
-      { name: "Photoshop", color: "bg-blue-100" },
-      { name: "Illustrator", color: "bg-orange-100" },
-      { name: "Corel", color: "bg-green-100" }
+      { name: "Figma", logoType: "svg", logoSvg: "figma" },
+      { name: "Adobe XD", logoType: "svg", logoSvg: "adobe-xd" },
+      { name: "Sketch", logoType: "svg", logoSvg: "sketch" },
+      { name: "Photoshop", logoType: "svg", logoSvg: "photoshop" },
+      { name: "Illustrator", logoType: "svg", logoSvg: "illustrator" },
+      { name: "Canva", logoType: "svg", logoSvg: "canva" },
+      { name: "Slack", logoType: "svg", logoSvg: "slack" },
+      { name: "Framer", logoType: "svg", logoSvg: "framer" },
+      { name: "CorelDRAW", logoType: "svg", logoSvg: "corel" },
+      { name: "Principal", logoType: "text", logoColor: "bg-blue-100" }
     ],
     certifications: [
       {
         company: "Google",
         logo: "Google",
+        logoType: "svg",
+        logoSvg: "google",
         logoColor: "text-blue-500",
         title: "UX Design Certificate",
         date: "October 2023 | Coursera"
@@ -79,8 +84,10 @@ export const creators = {
       {
         company: "IBM",
         logo: "IBM",
+        logoType: "svg",
+        logoSvg: "ibm",
         logoColor: "text-blue-600",
-        title: "IBM Enterprise Design Thinkin..",
+        title: "IBM Enterprise Design Thinking",
         date: "September 2024"
       }
     ],
@@ -92,7 +99,7 @@ export const creators = {
     name: "Sheriff",
     fullName: "Sheriff Kabiru",
     role: "Electrical Design Engineer (MEP)",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=700&fit=crop",
+    image: "/Images-20260727T192134Z-1-001/Images/Rectangle 365.png",
     bio: [
       "I'm Sheriff Kabiru, an electrical MEP engineer with expertise in power distribution, ELV systems, and renewable energy integration for building projects. I design distribution, lighting, fire alarm, and backup power systems, all compliant with Nigerian engineering standards.",
       "I size solar PV systems (off-grid, on-grid, and hybrid) and explore innovative piezoelectric energy harvesting for smart building power. My goal is to make buildings energy-efficient, safe, and grid-resilient."
@@ -101,7 +108,8 @@ export const creators = {
     history: [
       {
         company: "MEP Engineering Consultants",
-        logo: "M",
+        logo: "MEP",
+        logoType: "text",
         logoColor: "bg-red-600",
         role: "Lead Electrical MEP & Renewable Engineer",
         type: "Full-time",
@@ -113,7 +121,8 @@ export const creators = {
       },
       {
         company: "Power & Renewable Solutions Nigeria",
-        logo: "P",
+        logo: "PRS",
+        logoType: "text",
         logoColor: "bg-blue-600",
         role: "Electrical Systems & Solar PV Design Engineer",
         type: "Contract",
@@ -125,7 +134,8 @@ export const creators = {
       },
       {
         company: "Building Services Engineering Ltd",
-        logo: "B",
+        logo: "BSE",
+        logoType: "text",
         logoColor: "bg-green-600",
         role: "Engineering",
         type: "Full-time",
@@ -146,17 +156,18 @@ export const creators = {
       "Electricity DisCo Service Integration"
     ],
     tools: [
-      { name: "AutoCAD", color: "bg-red-100" },
-      { name: "Microsoft Excel", color: "bg-green-100" },
-      { name: "VFD Software", color: "bg-blue-100" },
-      { name: "PVsyst", color: "bg-yellow-100" },
-      { name: "DIALux", color: "bg-gray-100" },
-      { name: "MATLAB / ETAP", color: "bg-orange-100" }
+      { name: "AutoCAD", logoType: "svg", logoSvg: "autocad" },
+      { name: "Microsoft Excel", logoType: "svg", logoSvg: "excel" },
+      { name: "VFD Software", logoType: "text", logoColor: "bg-blue-100" },
+      { name: "PVsyst", logoType: "text", logoColor: "bg-yellow-100" },
+      { name: "DIALux", logoType: "text", logoColor: "bg-gray-100" },
+      { name: "MATLAB", logoType: "svg", logoSvg: "matlab" }
     ],
     certifications: [
       {
         company: "COREN",
         logo: "COREN",
+        logoType: "text",
         logoColor: "text-green-600",
         title: "Council for the Regulation of Engineering in Nigeria",
         date: "2021"
@@ -164,6 +175,7 @@ export const creators = {
       {
         company: "NERC",
         logo: "NERC",
+        logoType: "text",
         logoColor: "text-blue-600",
         title: "Nigerian Electricity Regulatory Commission",
         date: "2022"
@@ -172,7 +184,114 @@ export const creators = {
     languages: [
       { name: "English", flag: "🇬🇧" }
     ]
+  },
+
+  feranmi: {
+    name: "Feranmi",
+    fullName: "Olatunbosun Oluwaferanmi Michael",
+    role: "Full Stack Developer",
+    image: "/Images-20260727T192134Z-1-001/Images/feranmi-profile.png",
+    bio: [
+      "Hey! I'm Feranmi a full stack dev who loves turning ideas into real, working products. I started coding because I was curious about how things work under the hood, and now I build web apps that people actually use.",
+      "I enjoy the full journey from sketching out the database schema to making the frontend feel smooth and responsive. When I'm not debugging, I'm probably exploring a new framework, tweaking UI animations, or arguing with CSS about why that div won't center.",
+      "I believe good code is like good design it should feel invisible. Clean, fast, and just work. Let's build something cool together!"
+    ],
+    connectText: "Let's build something! Hit me up",
+    history: [
+      {
+        company: "Aurora Creative",
+        logo: "Aurora",
+        logoType: "text",
+        logoColor: "bg-red-600",
+        role: "Full Stack Developer",
+        type: "Full-time",
+        date: "Jan 2025 - Present",
+        points: [
+          "Led beta development of PayPulse — a financial management app with secure transactions, expense tracking, and savings goals.",
+          "Built and maintained the entire frontend architecture using React, Vite, and Tailwind CSS with Framer Motion animations.",
+          "Developed RESTful APIs with Node.js and integrated MongoDB for data persistence and real-time updates."
+        ]
+      },
+      {
+        company: "EventSpace",
+        logo: "EventSpace",
+        logoType: "text",
+        logoColor: "bg-blue-600",
+        role: "Full Stack Developer",
+        type: "Contract",
+        date: "2024",
+        points: [
+          "Designed and developed a complete venue booking platform for discovering, comparing, and reserving event spaces across Lagos.",
+          "Built responsive frontend with React and Tailwind, featuring search, filters, image galleries, and booking request workflows.",
+          "Implemented backend with Node.js and Supabase, managing venue data, customer details, booking requests, and real-time availability."
+        ]
+      },
+      {
+        company: "Hybri",
+        logo: "Hybri",
+        logoType: "text",
+        logoColor: "bg-purple-600",
+        role: "Full Stack Developer",
+        type: "Contract",
+        date: "2024 - Present",
+        points: [
+          "Currently building an e-commerce platform connecting traders and buyers in a streamlined marketplace experience.",
+          "Architecting the full stack solution with React, Node.js, and MongoDB for scalable product listings and transaction handling.",
+          "Developing real-time chat, order management, and vendor dashboard features for seamless trading operations."
+        ]
+      }
+    ],
+    skills: [
+      "Frontend Development (React, HTML/CSS, Tailwind)",
+      "Backend Development (Node.js, Express, REST APIs)",
+      "Database Design (MongoDB, Supabase, Firebase)",
+      "State Management & API Integration",
+      "Authentication & Security (JWT, OAuth)",
+      "Deployment & DevOps (Vercel, Netlify, CI/CD)",
+      "Responsive & Animated UI (Framer Motion, GSAP)",
+      "Version Control (Git, GitHub)",
+      "API Testing & Documentation (Postman)",
+      "C++ for Prototyping & Algorithm Design"
+    ],
+    tools: [
+      { name: "React", logoType: "svg", logoSvg: "react" },
+      { name: "Node.js", logoType: "svg", logoSvg: "nodejs" },
+      { name: "HTML/CSS", logoType: "svg", logoSvg: "htmlcss" },
+      { name: "C++", logoType: "svg", logoSvg: "cpp" },
+      { name: "MongoDB", logoType: "svg", logoSvg: "mongodb" },
+      { name: "Supabase", logoType: "svg", logoSvg: "supabase" },
+      { name: "VS Code", logoType: "svg", logoSvg: "vscode" },
+      { name: "Vite", logoType: "svg", logoSvg: "vite" },
+      { name: "Postman", logoType: "svg", logoSvg: "postman" },
+      { name: "Vercel", logoType: "svg", logoSvg: "vercel" },
+      { name: "Netlify", logoType: "svg", logoSvg: "netlify" },
+      { name: "Git", logoType: "svg", logoSvg: "git" }
+    ],
+    certifications: [
+      {
+        company: "Google",
+        logo: "Google",
+        logoType: "svg",
+        logoSvg: "google",
+        logoColor: "text-blue-500",
+        title: "Google IT Support Certificate",
+        date: "2023 | Coursera"
+      },
+      {
+        company: "IBM",
+        logo: "IBM",
+        logoType: "svg",
+        logoSvg: "ibm",
+        logoColor: "text-blue-600",
+        title: "IBM Full Stack Software Developer",
+        date: "2024 | Coursera"
+      }
+    ],
+    languages: [
+      { name: "English", flag: "🇬🇧" }
+    ]
   }
+
 };
 
 export const creatorList = Object.entries(creators).map(([slug, data]) => ({

@@ -23,29 +23,17 @@ export default function Footer() {
               onClick={() => navigate('/contact')}
               className="px-8 py-3.5 bg-red-600 text-white rounded-full font-medium hover:bg-red-700 transition-all flex items-center gap-2"
             >
-              Get in touch with me <ArrowRight className="w-4 h-4" />
+              Get in touch with us <ArrowRight className="w-4 h-4" />
             </button>
           </div>
 
-          {/* Abstract 3D Wireframe Placeholder */}
+          {/* Your Custom Image — same size as the old grid */}
           <div className="relative w-80 h-80 md:w-96 md:h-96">
-            <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl overflow-hidden">
-              <svg viewBox="0 0 400 400" className="w-full h-full opacity-40">
-                <defs>
-                  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="black" strokeWidth="0.5"/>
-                  </pattern>
-                </defs>
-                <rect width="400" height="400" fill="url(#grid)" />
-                <circle cx="200" cy="200" r="150" fill="none" stroke="black" strokeWidth="0.5" />
-                <circle cx="200" cy="200" r="100" fill="none" stroke="black" strokeWidth="0.5" />
-                <path d="M200,50 Q350,200 200,350 Q50,200 200,50" fill="none" stroke="black" strokeWidth="0.5" />
-                <path d="M100,100 Q300,100 300,300 Q100,300 100,100" fill="none" stroke="black" strokeWidth="0.5" />
-              </svg>
-            </div>
-            {/* Floating elements to simulate 3D */}
-            <div className="absolute top-1/4 left-1/4 w-16 h-16 border border-gray-400 rounded-lg rotate-12 bg-white/50 backdrop-blur-sm" />
-            <div className="absolute bottom-1/3 right-1/4 w-20 h-20 border border-gray-400 rounded-full -rotate-12 bg-white/50 backdrop-blur-sm" />
+            <img 
+              src="\Images-20260727T192134Z-1-001\Images\Rectangle 361.png" 
+              alt="Footer decoration"
+              className="w-full h-full object-cover rounded-3xl"
+            />
           </div>
         </div>
 

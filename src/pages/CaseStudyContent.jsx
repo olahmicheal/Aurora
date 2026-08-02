@@ -34,17 +34,73 @@ const ToolIcon = ({ tool }) => {
   );
 };
 
-// Reusable image grid component
-const ImageGrid = ({ images }) => {
+// Flexible Image Grid — handles 1 to 8+ images with configurable layouts
+const ImageGrid = ({ images, layout = 'auto' }) => {
   if (!images || images.length === 0) return null;
+
+  // Custom layout: "masonry" for branding projects with many images
+  if (layout === 'masonry') {
+    return (
+      <div className="columns-1 md:columns-2 gap-6 space-y-6">
+        {images.map((img, i) => (
+          <div key={i} className="break-inside-avoid relative rounded-2xl overflow-hidden border-2 border-gray-200">
+            {img.label && (
+              <div className="absolute top-4 left-4 z-10 bg-white px-4 py-2 rounded-lg shadow-sm">
+                <span className="text-blue-600 font-semibold">{img.label}</span>
+              </div>
+            )}
+            <img src={img.src} alt={img.label || `Image ${i + 1}`} className="w-full h-auto object-cover" />
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  // Custom layout: "grid-4" for 4 images in a 2x2 grid
+  if (layout === 'grid-4' && images.length >= 4) {
+    return (
+      <div className="grid grid-cols-2 md:grid-cols-2 gap-6">
+        {images.map((img, i) => (
+          <div key={i} className="relative rounded-2xl overflow-hidden border-2 border-gray-200">
+            {img.label && (
+              <div className="absolute top-4 left-4 z-10 bg-white px-4 py-2 rounded-lg shadow-sm">
+                <span className="text-blue-600 font-semibold">{img.label}</span>
+              </div>
+            )}
+            <img src={img.src} alt={img.label || `Image ${i + 1}`} className="w-full h-80 object-cover" />
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  // Custom layout: "grid-6" for 6 images
+  if (layout === 'grid-6' && images.length >= 6) {
+    return (
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+        {images.map((img, i) => (
+          <div key={i} className="relative rounded-2xl overflow-hidden border-2 border-gray-200">
+            {img.label && (
+              <div className="absolute top-4 left-4 z-10 bg-white px-4 py-2 rounded-lg shadow-sm">
+                <span className="text-blue-600 font-semibold">{img.label}</span>
+              </div>
+            )}
+            <img src={img.src} alt={img.label || `Image ${i + 1}`} className="w-full h-72 object-cover" />
+          </div>
+        ))}
+      </div>
+    );
+  }
 
   // Single image - full width
   if (images.length === 1) {
     return (
       <div className="rounded-2xl overflow-hidden border-2 border-gray-200 relative">
-        <div className="absolute top-4 left-4 z-10 bg-white px-4 py-2 rounded-lg shadow-sm">
-          <span className="text-blue-600 font-semibold">{images[0].label}</span>
-        </div>
+        {images[0].label && (
+          <div className="absolute top-4 left-4 z-10 bg-white px-4 py-2 rounded-lg shadow-sm">
+            <span className="text-blue-600 font-semibold">{images[0].label}</span>
+          </div>
+        )}
         <img src={images[0].src} alt={images[0].label} className="w-full h-96 object-cover" />
       </div>
     );
@@ -56,9 +112,11 @@ const ImageGrid = ({ images }) => {
       <div className="grid md:grid-cols-2 gap-6">
         {images.map((img, i) => (
           <div key={i} className="relative rounded-2xl overflow-hidden border-2 border-gray-200">
-            <div className="absolute top-4 left-4 z-10 bg-white px-4 py-2 rounded-lg shadow-sm">
-              <span className="text-blue-600 font-semibold">{img.label}</span>
-            </div>
+            {img.label && (
+              <div className="absolute top-4 left-4 z-10 bg-white px-4 py-2 rounded-lg shadow-sm">
+                <span className="text-blue-600 font-semibold">{img.label}</span>
+              </div>
+            )}
             <img src={img.src} alt={img.label} className="w-full h-96 object-cover" />
           </div>
         ))}
@@ -74,17 +132,21 @@ const ImageGrid = ({ images }) => {
     return (
       <div className="grid md:grid-cols-2 gap-6 items-start">
         <div className="relative rounded-xl overflow-hidden shadow-lg border border-gray-100 h-full">
-          <div className="absolute top-4 left-4 z-10 bg-white px-4 py-2 rounded-lg shadow-sm">
-            <span className="text-blue-600 font-semibold">{tallImage.label}</span>
-          </div>
+          {tallImage.label && (
+            <div className="absolute top-4 left-4 z-10 bg-white px-4 py-2 rounded-lg shadow-sm">
+              <span className="text-blue-600 font-semibold">{tallImage.label}</span>
+            </div>
+          )}
           <img src={tallImage.src} alt={tallImage.label} className="w-full h-full object-cover" />
         </div>
         <div className="flex flex-col gap-6 h-full">
           {otherImages.map((img, i) => (
             <div key={i} className="relative rounded-xl overflow-hidden shadow-lg border border-gray-100 flex-1">
-              <div className="absolute top-4 left-4 z-10 bg-white px-4 py-2 rounded-lg shadow-sm">
-                <span className="text-blue-600 font-semibold">{img.label}</span>
-              </div>
+              {img.label && (
+                <div className="absolute top-4 left-4 z-10 bg-white px-4 py-2 rounded-lg shadow-sm">
+                  <span className="text-blue-600 font-semibold">{img.label}</span>
+                </div>
+              )}
               <img src={img.src} alt={img.label} className="w-full h-full object-cover" />
             </div>
           ))}
@@ -93,20 +155,35 @@ const ImageGrid = ({ images }) => {
     );
   }
 
-  return null;
+  // Default: auto grid for 4+ images
+  return (
+    <div className={`grid gap-6 ${
+      images.length <= 4 ? 'grid-cols-2 md:grid-cols-2' :
+      images.length <= 6 ? 'grid-cols-2 md:grid-cols-3' :
+      'grid-cols-2 md:grid-cols-3 lg:grid-cols-4'
+    }`}>
+      {images.map((img, i) => (
+        <div key={i} className="relative rounded-2xl overflow-hidden border-2 border-gray-200">
+          {img.label && (
+            <div className="absolute top-4 left-4 z-10 bg-white px-4 py-2 rounded-lg shadow-sm">
+              <span className="text-blue-600 font-semibold">{img.label}</span>
+            </div>
+          )}
+          <img src={img.src} alt={img.label || `Image ${i + 1}`} className="w-full h-80 object-cover" />
+        </div>
+      ))}
+    </div>
+  );
 };
 
-// Helper to get next 2 portfolio items (circular, excluding current + 24/7)
+// Helper to get next 2 portfolio items
 function getNextProjects(currentSlug) {
-  // Filter out 24/7 and current project
   const eligible = portfolioItems.filter(item => 
     item.slug !== currentSlug && item.slug !== "twentyfour"
   );
-
   if (eligible.length === 0) return [];
   if (eligible.length === 1) return eligible;
 
-  // Find current index in full portfolioItems (for circular ordering)
   const currentIndex = portfolioItems.findIndex(item => item.slug === currentSlug);
   const nextProjects = [];
   let index = (currentIndex + 1) % portfolioItems.length;
@@ -118,13 +195,75 @@ function getNextProjects(currentSlug) {
     }
     index = (index + 1) % portfolioItems.length;
   }
-
   return nextProjects;
 }
+
+// Render a single content section
+const ContentSection = ({ section, index }) => {
+  const { title, text, images, layout, showUCDLabel = true, bgColor } = section;
+
+  return (
+    <section className={`max-w-7xl mx-auto px-6 mb-24 ${bgColor || ''}`}>
+      {showUCDLabel && <span className="text-blue-600 font-semibold text-sm tracking-wide mb-3 block">UCD Process</span>}
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">{title}</h2>
+      {text && <p className="text-gray-700 leading-[1.8] mb-12 max-w-5xl text-lg">{text}</p>}
+      <ImageGrid images={images} layout={layout} />
+    </section>
+  );
+};
+
+// Render the Implementation/Launch quadrant
+const QuadrantSection = ({ implementation, launch }) => {
+  const hasImpl = implementation && implementation.title;
+  const hasLaunch = launch && launch.title;
+
+  if (!hasImpl && !hasLaunch) return null;
+
+  return (
+    <section className="mb-24">
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        {hasImpl ? (
+          <div className="bg-[#2563EB] p-10 md:p-20 text-white min-h-[300px] md:min-h-[400px] flex flex-col justify-center">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">{implementation.title}</h2>
+            {implementation.text && <p className="leading-[1.8] text-blue-100 max-w-md">{implementation.text}</p>}
+          </div>
+        ) : <div className="hidden md:block bg-white min-h-[400px]" />}
+
+        {!hasLaunch && <div className="hidden md:block bg-white min-h-[400px]" />}
+        {hasLaunch && (
+          <div className="bg-[#C084FC] p-10 md:p-20 text-white min-h-[300px] md:min-h-[400px] flex flex-col justify-center">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">{launch.title}</h2>
+            {launch.text && <p className="leading-[1.8] text-purple-100 max-w-md">{launch.text}</p>}
+          </div>
+        )}
+      </div>
+    </section>
+  );
+};
 
 export default function CaseStudyContent({ data }) {
   const navigate = useNavigate();
   const nextProjects = getNextProjects(data.slug);
+
+  // Build sections array from data.sections or fall back to legacy keys
+  const sections = data.sections || [
+    { key: 'research', titleKey: 'researchTitle', textKey: 'researchText', imagesKey: 'researchImages', layout: 'auto' },
+    { key: 'persona', titleKey: 'personaTitle', textKey: 'personaText', imagesKey: 'personaImages', layout: 'auto' },
+    { key: 'ideation', titleKey: 'ideationTitle', textKey: 'ideationText', imagesKey: 'ideationImages', layout: 'auto' },
+    { key: 'wireframe', titleKey: 'wireframeTitle', textKey: 'wireframeText', imagesKey: 'wireframeImages', layout: 'auto' },
+  ];
+
+  // Filter out sections with no content
+  const validSections = sections
+    .map(s => ({
+      title: data[s.titleKey],
+      text: data[s.textKey],
+      images: s.imagesKey ? data[s.imagesKey] : null,
+      layout: s.layout || 'auto',
+      showUCDLabel: s.showUCDLabel !== false,
+      bgColor: s.bgColor,
+    }))
+    .filter(s => s.title || s.text || (s.images && s.images.length > 0));
 
   return (
     <>
@@ -155,91 +294,41 @@ export default function CaseStudyContent({ data }) {
       </section>
 
       {/* Design Process */}
-      <section className="bg-[#FFFBF7] py-20 mb-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-900">Design Process</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            {data.processPhases.map((p, i) => (
-              <div key={i} className="space-y-4">
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-blue-600" />
-                  <h3 className="font-bold text-gray-900 text-lg">{p.phase}</h3>
+      {data.processPhases && (
+        <section className="bg-[#FFFBF7] py-20 mb-24">
+          <div className="max-w-7xl mx-auto px-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-900">Design Process</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+              {data.processPhases.map((p, i) => (
+                <div key={i} className="space-y-4">
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 rounded-full bg-blue-600" />
+                    <h3 className="font-bold text-gray-900 text-lg">{p.phase}</h3>
+                  </div>
+                  <ul className="space-y-2 pl-5">
+                    {p.items.map((item, idx) => (
+                      <li key={idx} className="text-gray-600 text-sm font-light">• {item}</li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="space-y-2 pl-5">
-                  {p.items.map((item, idx) => (
-                    <li key={idx} className="text-gray-600 text-sm font-light">• {item}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Research and Analysis - CONDITIONAL */}
-      {data.researchTitle && data.researchImages && data.researchImages.length > 0 && (
-        <section className="max-w-7xl mx-auto px-6 mb-24">
-          <span className="text-blue-600 font-semibold text-sm tracking-wide mb-3 block">UCD Process</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">{data.researchTitle}</h2>
-          {data.researchText && <p className="text-gray-700 leading-[1.8] mb-12 max-w-5xl text-lg">{data.researchText}</p>}
-          <ImageGrid images={data.researchImages} />
-        </section>
-      )}
-
-      {/* User Personas / Requirements - CONDITIONAL */}
-      {data.personaTitle && data.personaImages && data.personaImages.length > 0 && (
-        <section className="max-w-7xl mx-auto px-6 mb-24">
-          <span className="text-blue-600 font-semibold text-sm tracking-wide mb-3 block">UCD Process</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">{data.personaTitle}</h2>
-          {data.personaText && <p className="text-gray-700 leading-[1.8] mb-12 max-w-5xl text-lg">{data.personaText}</p>}
-          <ImageGrid images={data.personaImages} />
-        </section>
-      )}
-
-      {/* Ideation / IA - CONDITIONAL */}
-      {data.ideationTitle && data.ideationImages && data.ideationImages.length > 0 && (
-        <section className="max-w-7xl mx-auto px-6 mb-24">
-          <span className="text-blue-600 font-semibold text-sm tracking-wide mb-3 block">UCD Process</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">{data.ideationTitle}</h2>
-          {data.ideationText && <p className="text-gray-700 leading-[1.8] mb-12 max-w-5xl text-lg">{data.ideationText}</p>}
-          <ImageGrid images={data.ideationImages} />
-        </section>
-      )}
-
-      {/* Wireframing / Development - CONDITIONAL */}
-      {data.wireframeTitle && data.wireframeImages && data.wireframeImages.length > 0 && (
-        <section className="max-w-7xl mx-auto px-6 mb-24">
-          <span className="text-blue-600 font-semibold text-sm tracking-wide mb-3 block">UCD Process</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">{data.wireframeTitle}</h2>
-          {data.wireframeText && <p className="text-gray-700 leading-[1.8] mb-12 max-w-5xl text-lg">{data.wireframeText}</p>}
-          <ImageGrid images={data.wireframeImages} />
-        </section>
-      )}
-
-      {/* Implementation & Launch Quadrant - CONDITIONAL */}
-      {(data.implementationTitle || data.launchTitle) && (
-        <section className="mb-24">
-          <div className="grid grid-cols-1 md:grid-cols-2">
-            {data.implementationTitle && (
-              <div className="bg-[#2563EB] p-10 md:p-20 text-white min-h-[300px] md:min-h-[400px] flex flex-col justify-center">
-                <h2 className="text-2xl md:text-3xl font-bold mb-6">{data.implementationTitle}</h2>
-                {data.implementationText && <p className="leading-[1.8] text-blue-100 max-w-md">{data.implementationText}</p>}
-              </div>
-            )}
-            {!data.implementationTitle && <div className="hidden md:block bg-white min-h-[400px]" />}
-
-            {!data.launchTitle && <div className="hidden md:block bg-white min-h-[400px]" />}
-            {data.launchTitle && (
-              <div className="bg-[#C084FC] p-10 md:p-20 text-white min-h-[300px] md:min-h-[400px] flex flex-col justify-center">
-                <h2 className="text-2xl md:text-3xl font-bold mb-6">{data.launchTitle}</h2>
-                {data.launchText && <p className="leading-[1.8] text-purple-100 max-w-md">{data.launchText}</p>}
-              </div>
-            )}
+              ))}
+            </div>
           </div>
         </section>
       )}
 
-      {/* Conclusion - CONDITIONAL */}
+      {/* Dynamic Content Sections */}
+      {validSections.map((section, index) => (
+        <ContentSection key={index} section={section} index={index} />
+      ))}
+
+      {/* Implementation & Launch Quadrant */}
+      <QuadrantSection 
+        implementation={data.implementationTitle ? { title: data.implementationTitle, text: data.implementationText } : null}
+        launch={data.launchTitle ? { title: data.launchTitle, text: data.launchText } : null}
+      />
+
+      {/* Conclusion */}
       {data.conclusion && (
         <section className="max-w-4xl mx-auto px-6 mb-24 text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">Conclusion</h2>
@@ -247,7 +336,7 @@ export default function CaseStudyContent({ data }) {
         </section>
       )}
 
-      {/* Next Projects - Dynamic from portfolioItems */}
+      {/* Next Projects */}
       {nextProjects.length > 0 && (
         <section className="mb-0">
           <div className="grid grid-cols-1 md:grid-cols-2">

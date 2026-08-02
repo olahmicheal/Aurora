@@ -44,10 +44,5 @@
   }
 }
 
-.shape-shifter {
-  animation: shape-shift 8s ease-in-out infinite alternate;
-}
 
-.shape-shifter:hover {
-  animation-play-state: paused;
-}
+
