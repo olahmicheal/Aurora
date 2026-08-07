@@ -10,7 +10,8 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CaseStudyRouter from './pages/CaseStudyRouter';
 import CreatorProfile from './pages/CreatorProfile';
-import Projects from './pages/Projects'; // ← ADD THIS
+import Projects from './pages/Projects';
+import ScrollToTop from './components/ScrollToTop'; // ← ADD THIS IMPORT
 
 function HomePage({ scrollLocked, onUnlock }) {
   return (
@@ -51,6 +52,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <ScrollToTop /> {/* ← ADD THIS LINE (must be INSIDE BrowserRouter) */}
       <Routes>
         <Route path="/" element={<HomePage scrollLocked={scrollLocked} onUnlock={handleUnlock} />} />
         <Route path="/projects" element={

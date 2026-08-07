@@ -99,7 +99,7 @@ export default function Portfolio() {
           {portfolioItems.map((item) => (
             <PortfolioCard key={item.id} item={item} navigate={navigate} />
           ))}
-          <ViewMoreCard onClick={() => navigate('/projects')} />
+          <ViewMoreCard onClick={() => navigate(`/projects`)} />
         </StackedSections>
       </div>
       <div className="h-2" />

@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
 import { allProjects, projectCategories } from '../data/projectsData.js';
 import GithubCardSkew from '../components/animata/card/GithubCardSkew';
 import FluidTabs from '../components/animata/tabs/FluidTabs';
@@ -81,6 +82,14 @@ export default function Projects() {
   return (
     <section className="min-h-screen bg-[#f0f0f0] pt-28 pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
+
+        {/* Back to Home */}
+        <button 
+          onClick={() => navigate(-1)} 
+          className="flex items-center gap-2 text-sm text-gray-500 hover:text-red-600 mb-8 transition-colors"
+        >
+          <ArrowLeft className="w-4 h-4" /> Back to portfolio
+        </button>
 
         {/* Header */}
         <div className="text-center mb-12">

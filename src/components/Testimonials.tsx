@@ -19,10 +19,10 @@ export default function Testimonials() {
           gap="gap-6"
           cardShadow={false}
           direction="horizontal"
-          className="grid md:grid-cols-3"
+          className="grid md:grid-cols-3 gap-6"
         >
           {testimonials.map((t) => (
-            <div key={t.id} className="p-6 rounded-2xl border border-gray-100 bg-white hover:shadow-lg transition-shadow">
+            <div key={t.id} className="p-6 rounded-2xl border border-gray-100 bg-white hover:shadow-lg transition-shadow h-full">
               <div className="flex gap-1 mb-4">
                 {[...Array(t.rating)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 fill-red-600 text-red-600" />

@@ -220,7 +220,7 @@ export default function CreatorProfile() {
       <div className="min-h-screen flex items-center justify-center bg-white">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Creator Not Found</h1>
-          <button onClick={() => navigate('/')} className="px-6 py-3 bg-red-600 text-white rounded-full hover:bg-red-700">
+          <button onClick={() => navigate(-1)} className="px-6 py-3 bg-red-600 text-white rounded-full hover:bg-red-700">
             Back to Home
           </button>
         </div>

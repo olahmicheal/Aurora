@@ -328,15 +328,15 @@ export default function CaseStudyContent({ data }) {
         launch={data.launchTitle ? { title: data.launchTitle, text: data.launchText } : null}
       />
 
-      {/* Conclusion */}
+      {/* Conclusion — LEFT ALIGNED (matching other sections) */}
       {data.conclusion && (
-        <section className="max-w-4xl mx-auto px-6 mb-24 text-center">
+        <section className="max-w-7xl mx-auto px-6 mb-24">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">Conclusion</h2>
-          <p className="text-gray-700 leading-[1.8] text-lg">{data.conclusion}</p>
+          <p className="text-gray-700 leading-[1.8] text-lg max-w-5xl">{data.conclusion}</p>
         </section>
       )}
 
-      {/* Next Projects */}
+      {/* Next Projects — NO CIRCULAR PADDING */}
       {nextProjects.length > 0 && (
         <section className="mb-0">
           <div className="grid grid-cols-1 md:grid-cols-2">
@@ -351,9 +351,13 @@ export default function CaseStudyContent({ data }) {
                 </span>
                 <h3 className="text-4xl md:text-5xl font-bold italic mb-3">{project.title}</h3>
                 <p className="opacity-60 mb-8">{project.subtitle}</p>
-                <div className="relative flex justify-center">
-                  <div className={`absolute w-64 h-64 ${project.circleColor} rounded-full opacity-80`} />
-                  <img src={project.image} alt={project.title} className="relative z-10 w-48 h-auto" />
+                {/* Removed circular background, image shows directly */}
+                <div className="flex justify-center">
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-48 h-auto object-contain" 
+                  />
                 </div>
               </div>
             ))}

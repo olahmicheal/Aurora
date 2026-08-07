@@ -1,10 +1,8 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, MessageCircle } from 'lucide-react';
 import TextExplodeIMessage from './animata/text/TextExplodeIMessage';
-import { useNavigate } from 'react-router-dom';
+import ViewSiteModal from './ViewSiteModal';
 
 export default function Footer() {
-  const navigate = useNavigate();
-
   return (
     <footer className="bg-white py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6">
@@ -19,18 +17,20 @@ export default function Footer() {
             <p className="text-xl text-gray-900 font-medium mb-8 leading-relaxed">
               Do you have great idea and want to share. Let's make something amazing together
             </p>
-            <button 
-              onClick={() => navigate('/contact')}
-              className="px-8 py-3.5 bg-red-600 text-white rounded-full font-medium hover:bg-red-700 transition-all flex items-center gap-2"
-            >
-              Get in touch with us <ArrowRight className="w-4 h-4" />
-            </button>
+            
+            {/* Contact Modal Button */}
+            <ViewSiteModal
+              mode="contact"
+              accentColor="bg-red-600"
+              triggerText="Get in touch with us"
+              triggerIcon={MessageCircle}
+            />
           </div>
 
-          {/* Your Custom Image — same size as the old grid */}
+          {/* Your Custom Image */}
           <div className="relative w-80 h-80 md:w-96 md:h-96">
             <img 
-              src="\Images-20260727T192134Z-1-001\Images\Rectangle 361.png" 
+              src="/Images-20260727T192134Z-1-001/Images/Rectangle 361.png" 
               alt="Footer decoration"
               className="w-full h-full object-cover rounded-3xl"
             />
